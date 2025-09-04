@@ -1,0 +1,60 @@
+.movie-list{
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.detail-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.backdrop {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  object-position: 50% 30%;
+}
+
+.movie-detail-main{
+  display:flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.poster img{
+  width: 250px;
+  display: block;
+}
+
+.info {
+  flex: 1;   
+}
+
+.movie-card{
+  border: 1px solid #ccc; 
+  border-radius: 8px; 
+  padding: 10px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.movie-card img{
+  width: 100%;            
+  height: auto;               
+  display: block;
+  aspect-ratio: 2 / 3; /* 비율 통일 */
+  object-fit: cover;/* 넘치는 부분 자름*/
+}
+
+.movie-card h2 {
+  font-size: 14px;
+  margin: 8px 0 4px;
+}
+
+.movie-card p {
+  font-size: 13px;
+  margin: 0 0 8px;
+}
