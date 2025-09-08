@@ -9,7 +9,6 @@ export default function NavBar() {
             <span style={{color: 'white'}}>검색</span>
             </div>
             <Link to='/' style={{ color: "#fff", marginRight: 12 }}>메인 페이지</Link>
-            <Link to='/detail/:id' style={{ color: "#fff", marginRight: 12 }}>상세 페이지</Link>
         </nav>
     )
 }

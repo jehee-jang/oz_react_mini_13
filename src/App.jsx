@@ -1,5 +1,4 @@
 import MovieCard from "./component/MovieCard";
-import movieListData from "./assets/data/movieListData.json"
 import { Routes, Route } from "react-router-dom";
 import MovieDetail from "./component/MovieDetail";
 import './App.css'
@@ -9,9 +8,30 @@ import 'swiper/css';
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import { useEffect, useState } from "react";
 
 
 function List() {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_TOKEN}`
+  },
+};
+
+
+fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
+  .then(res => res.json())
+  .then((data) => {
+        const filtered = data.results.filter((m) => m.adult === false);
+        setMovies(filtered);
+      })
+  .catch(err => console.error(err));
+  }, []);
   
   return (
     <div className="app">
@@ -22,7 +42,7 @@ function List() {
     slidesPerView={5}// 슬라이드 한 화면에 몇개 보여줄건지
     navigation // 좌우 버튼 활성화
   >
-    {movieListData.results.map((movie) => (
+    {movies.map((movie) => (
         <SwiperSlide key={movie.id}>
           <MovieCard
             id={movie.id}
@@ -48,5 +68,7 @@ function App() {
     </Routes>
   );
 }
+//<SwiperSlide key={movie.id}> 구분하는 식별자
+//<Route index element={<List />} /> 부모 <Route> 안에서 기본 경로(default path)"를 설정한다는 의미
 
 export default App;

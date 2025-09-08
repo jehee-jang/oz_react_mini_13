@@ -5,17 +5,27 @@
 }
 
 .detail-page {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  position: relative;
+  min-height: 100vh;
+}
+
+.backdrop {
+  position: fixed;       /* 스크롤해도 계속 깔리게 하려면 fixed, 섹션 안에만이면 absolute */
+  inset: 0;              /* top/right/bottom/left 모두 0 */
+  z-index: -1;           /* 콘텐츠 뒤로 */
+  pointer-events: none;  /* 클릭 이벤트 막지 않게 */
 }
 
 .backdrop {
   width: 100%;
-  max-height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-  object-position: 50% 30%;
+  height: 100%;
+  object-fit: cover;     /* 비율 유지하며 꽉 채우기 */
+  opacity: 0.3;          /* 여기서 투명도 조절 */
+}
+
+.backdrop-overlay {
+  position: absolute;
+  inset: 0;
 }
 
 .movie-detail-main{
@@ -27,6 +37,7 @@
 .poster img{
   width: 250px;
   display: block;
+  border-radius: 10px;
 }
 
 .info {
@@ -57,4 +68,14 @@
 .movie-card p {
   font-size: 13px;
   margin: 0 0 8px;
+}
+
+.voteaverage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center; 
+  color: white;
+  font: 700 calc(50px * 0.32) / 1 system-ui, sans-serif;
 }
