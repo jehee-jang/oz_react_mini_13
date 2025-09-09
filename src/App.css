@@ -1,74 +1,11 @@
-.movie-list{
-  display: grid;
-  gap: 30px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
 
-.detail-page {
-  position: relative;
-  min-height: 100vh;
-}
 
-.backdrop {
-  position: fixed;       /* 스크롤해도 계속 깔리게 하려면 fixed, 섹션 안에만이면 absolute */
-  inset: 0;              /* top/right/bottom/left 모두 0 */
-  z-index: -1;           /* 콘텐츠 뒤로 */
-  pointer-events: none;  /* 클릭 이벤트 막지 않게 */
-}
 
-.backdrop {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;     /* 비율 유지하며 꽉 채우기 */
-  opacity: 0.3;          /* 여기서 투명도 조절 */
-}
-
-.backdrop-overlay {
-  position: absolute;
-  inset: 0;
-}
-
-.movie-detail-main{
-  display:flex;
-  gap: 20px;
-  align-items: flex-start;
-}
-
-.poster img{
-  width: 250px;
-  display: block;
-  border-radius: 10px;
-}
 
 .info {
   flex: 1;   
 }
 
-.movie-card{
-  border: 1px solid #ccc; 
-  border-radius: 8px; 
-  padding: 10px;
-  text-align: center;
-  overflow: hidden;
-}
-
-.movie-card img{
-  width: 100%;            
-  height: auto;               
-  display: block;
-  aspect-ratio: 2 / 3; /* 비율 통일 */
-  object-fit: cover;/* 넘치는 부분 자름*/
-}
-
-.movie-card h2 {
-  font-size: 14px;
-  margin: 8px 0 4px;
-}
-
-.movie-card p {
-  font-size: 13px;
-  margin: 0 0 8px;
-}
 
 .voteaverage {
   width: 50px;
